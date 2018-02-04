@@ -9,7 +9,6 @@ var db = require('./db/sqlConn');
 var index = require('./routes/index');
 var schematicTypes = require('./routes/schematicTypes');
 var schematics = require('./routes/schematics');
-var slots = require('./routes/slots');
 var properties = require('./routes/properties');
 var materials = require('./routes/materials');
 
@@ -30,17 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/schematicTypes', schematicTypes);
 app.use('/schematics', schematics);
-app.use('/slots', slots);
 app.use('/properties', properties);
 app.use('/materials', materials);
-
-// db.connect(function (err) {
-//   if (err) {
-//     console.log('Unable to connect to MySQL.');
-//   } else {
-//     console.log('Connected to MySQL.');
-//   }
-// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
