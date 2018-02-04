@@ -23,7 +23,7 @@ class PropertySelect extends React.Component {
   }
 
   getProperties() {
-    fetch(`/properties?tier=${this.props.tier}&slotTypeId=${this.props.slotTypeId}&materialTypeId=${this.props.materialTypeId}`)
+    fetch(`/properties?tier=${this.props.tier}&slotType=${this.props.type}&materialType=${this.props.materialType}`)
       .then(res => { return res.json(); })
       .then(data => { this.setState({ properties: data }); });
   }
@@ -42,9 +42,9 @@ class PropertySelect extends React.Component {
     const options = this.state.properties.map(property => {
       return (
         <BuilderOption
-          key={property.PropertyId}
-          value={property.PropertyId}
-          name={property.PropertyName}
+          key={property}
+          value={property}
+          name={property}
         />
       );
     });
@@ -67,7 +67,7 @@ class MaterialSelect extends React.Component {
   }
 
   getMaterials() {
-    fetch(`/materials?tier=${this.props.tier}&materialTypeId=${this.props.materialTypeId}&propertyId=${this.props.propertyId}`)
+    fetch(`/materials?tier=${this.props.tier}&materialType=${this.props.materialType}&property=${this.props.property}`)
       .then(res => { return res.json(); })
       .then(data => { this.setState({ materials: data }); });
   }
@@ -77,7 +77,7 @@ class MaterialSelect extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.propertyId !== prevProps.propertyId) {
+    if (this.props.property !== prevProps.property) {
       this.getMaterials();
     }
   }
@@ -86,9 +86,9 @@ class MaterialSelect extends React.Component {
     const options = this.state.materials.map(material => {
       return (
         <BuilderOption
-          key={material.MaterialId}
-          value={material.MaterialId}
-          name={material.MaterialName}
+          key={material}
+          value={material}
+          name={material}
         />
       );
     });
@@ -106,20 +106,20 @@ class Slot extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      propertyId: ""
+      property: ""
     };
   }
 
   handleTierChange(event) {
     this.setState({
-      propertyId: ""
+      property: ""
     });
     CraftActions.selectSlotTier(this.props.index, event.target.value);
   }
 
   handlePropertyChange(event) {
     this.setState({
-      propertyId: event.target.value
+      property: event.target.value
     });
     CraftActions.selectSlotProperty(this.props.index, event.target.selectedOptions[0].text);
   }
@@ -129,27 +129,27 @@ class Slot extends React.Component {
   }
 
   render() {
-    const property = (this.props.slot.tier === "") ? this.props.slot.slotType : (
+    const property = (this.props.slot.tier === "") ? this.props.slot.type : (
       <PropertySelect
         tier={this.props.slot.tier}
-        slotTypeId={this.props.slot.slotTypeId}
-        materialTypeId={this.props.slot.materialTypeId}
+        type={this.props.slot.type}
+        materialType={this.props.slot.materialType}
         onChange={this.handlePropertyChange.bind(this)}
       />
     );
 
-    const material = (this.state.propertyId === "") ? this.props.slot.materialType : (
+    const material = (this.state.property === "") ? this.props.slot.materialType : (
       <MaterialSelect
         tier={this.props.slot.tier}
-        materialTypeId={this.props.slot.materialTypeId}
-        propertyId={this.state.propertyId}
+        materialType={this.props.slot.materialType}
+        property={this.state.property}
         onChange={this.handleMaterialChange.bind(this)}
       />
     );
 
     return (
       <tr>
-        <th>{this.props.slot.slotType}</th>
+        <th>{this.props.slot.type}</th>
         <td>
           <TierSelect
             onChange={this.handleTierChange.bind(this)}
@@ -165,9 +165,9 @@ class Slot extends React.Component {
 
 class SlotPanel extends React.Component {
   getSlots() {
-    fetch(`/slots?schematicId=${this.props.schematic.id}`)
+    fetch(`/schematics/${this.props.schematic._id}`)
       .then(res => { return res.json() })
-      .then(data => { CraftActions.setSlots(data) });
+      .then(data => { CraftActions.setSlots(data.slots) });
   }
 
   componentDidMount() {
@@ -175,7 +175,7 @@ class SlotPanel extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.schematic.id !== prevProps.schematic.id) {
+    if (this.props.schematic._id !== prevProps.schematic._id) {
       this.getSlots();
     }
   }
@@ -188,7 +188,7 @@ class SlotPanel extends React.Component {
     const slotRows = this.props.schematic.slots.map((slot, index) => {
       return (
         <Slot
-          key={slot.slotId}
+          key={index}
           index={index}
           slot={slot}
         />

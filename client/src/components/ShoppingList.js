@@ -1,11 +1,10 @@
 import React from 'react';
-import CraftActions from '../actions/CraftActions.js';
 
 function ShoppingList(props) {
   const listArray = Object.entries(props.shoppingList);
-  const materialsList = listArray.map(entry => {
+  const materialsList = listArray.map((entry, index) => {
     return (!entry[0]) ? "" : (
-      <tr>
+      <tr key={index}>
         <td>{entry[0]}</td>
         <td>{entry[1]}</td>
       </tr>

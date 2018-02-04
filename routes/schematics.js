@@ -1,20 +1,40 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db/sqlConn');
+var dcdb = require('../db/sqlConn');
+var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 
 /* GET schematic data */
 router.get('/:id', function(req, res) {
-  console.log("hi" + req.params.id);
-  db.get().query(`SELECT * FROM Schematic WHERE SchematicId = ${req.params.id}`, function(err, data) {
-    res.json(data);
+  console.log("Get schematic by id: " + req.params.id);
+  MongoClient.connect(dcdb.url, function(err, database) {
+    var db = database.db('dcdb');
+    var collection = db.collection('schematics');
+    collection.find({
+      "_id": ObjectId(req.params.id)
+    }).toArray(function(err, schematic) {
+      res.json(schematic[0]);
+      database.close();
+    });
   });
 });
 
 /* GET schematic list */
-router.get('/', function(req, res, next) {
-  console.log('bye');
-  db.get().query(`CALL dcsp_GetSchematics(${req.query.schematicTypeId})`, function(err, data) {
-    res.json(data[0]);
+router.get('/', function(req, res) {
+  console.log('Get schematic list');
+  MongoClient.connect(dcdb.url, function(err, database) {
+    var db = database.db('dcdb');
+    var collection = db.collection('schematics');
+    collection.find({
+      type: req.query.schematicType
+    }).project({
+      name: 1
+    }).sort({
+      name: 1
+    }).toArray(function(err, schematics) {
+      res.json(schematics);
+      database.close();
+    });
   });
 });
 

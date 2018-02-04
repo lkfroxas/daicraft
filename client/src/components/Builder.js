@@ -21,9 +21,9 @@ class SchematicTypeSelect extends React.Component {
     const options = this.state.schematicTypes.map(type => {
       return (
         <BuilderOption
-          key={type.SchematicTypeId}
-          value={type.SchematicTypeId}
-          name={type.SchematicTypeName}
+          key={type}
+          value={type}
+          name={type}
         />
       );
     });
@@ -46,7 +46,7 @@ class SchematicSelect extends React.Component {
   }
 
   getSchematics() {
-    fetch(`/schematics?schematicTypeId=${this.props.schematicTypeId}`)
+    fetch(`/schematics?schematicType=${this.props.schematicType}`)
       .then(res => { return res.json(); })
       .then(data => { this.setState({ schematics: data }); });
   }
@@ -56,7 +56,7 @@ class SchematicSelect extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.schematicTypeId !== prevProps.schematicTypeId) {
+    if (this.props.schematicType !== prevProps.schematicType) {
       this.getSchematics();
     }
   }
@@ -65,9 +65,9 @@ class SchematicSelect extends React.Component {
     const schematicOptions = this.state.schematics.map(schematic => {
       return (
         <BuilderOption
-          key={schematic.SchematicId}
-          value={schematic.SchematicId}
-          name={schematic.SchematicName}
+          key={schematic._id}
+          value={schematic._id}
+          name={schematic.name}
         />
       );
     });
@@ -85,15 +85,15 @@ class Builder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      schematicTypeId: "",
+      schematicType: "",
     };
   }
 
   handleSchematicTypeChange(event) {
     this.setState({
-      schematicTypeId: event.target.value,
+      schematicType: event.target.value,
     });
-    if (this.props.schematic.id !== "")  CraftActions.selectSchematic("", "");
+    if (this.props.schematic._id !== "")  CraftActions.selectSchematic("", "");
   }
 
   handleSchematicChange(event) {
@@ -103,9 +103,9 @@ class Builder extends React.Component {
   }
 
   render() {
-    const selectSchematic = (this.state.schematicTypeId === "") ? "" : (
+    const selectSchematic = (this.state.schematicType === "") ? "" : (
       <SchematicSelect
-        schematicTypeId={this.state.schematicTypeId}
+        schematicType={this.state.schematicType}
         schematic={this.props.schematic}
         onChange={this.handleSchematicChange.bind(this)}
       />

@@ -4,7 +4,7 @@ import CraftActions from '../actions/CraftActions.js';
 function ItemSlot(props) {
   return (
     <tr>
-      <td>{props.slotType}</td>
+      <td>{props.type}</td>
       <td>{props.property}</td>
       <td>{props.material}</td>
       <td>{props.quantity}</td>
@@ -23,7 +23,7 @@ class Item extends React.Component {
         return (
           <ItemSlot
             key={index}
-            slotType={slot.slotType}
+            type={slot.type}
             property={slot.property}
             material={slot.material}
             quantity={slot.quantity}
