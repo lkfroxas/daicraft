@@ -34,13 +34,13 @@ app.use('/slots', slots);
 app.use('/properties', properties);
 app.use('/materials', materials);
 
-db.connect(function (err) {
-  if (err) {
-    console.log('Unable to connect to MySQL.');
-  } else {
-    console.log('Connected to MySQL.');
-  }
-});
+// db.connect(function (err) {
+//   if (err) {
+//     console.log('Unable to connect to MySQL.');
+//   } else {
+//     console.log('Connected to MySQL.');
+//   }
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

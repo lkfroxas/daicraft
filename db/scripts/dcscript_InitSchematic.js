@@ -1,5 +1,3 @@
-use dcdb
-
 db.schematics.insertMany([
   {
     name: "Mortalitasi Firm Club",
@@ -253,4 +251,4 @@ db.schematics.insertMany([
       { type: "Defense", materialType: "Leather", quantity: 4 }
     ]
   }
-])
+]);

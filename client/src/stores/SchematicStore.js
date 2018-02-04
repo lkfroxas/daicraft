@@ -3,30 +3,28 @@ import { EventEmitter } from 'events';
 import { CraftConstants } from '../constants/CraftConstants.js'
 
 let schematic = {
-  id: "",
+  _id: "",
   name: "",
-  slots: []
+  slots: null
 };
 
-function setSchematic(id, name) {
-  schematic.id = id;
+function setSchematic(_id, name) {
+  schematic._id = _id;
   schematic.name = name;
-  console.log('id', id);
+  schematic.slots = [];
+  console.log('id', _id);
   console.log('name', name);
 }
 
 function setSlots(slots) {
   schematic.slots = slots.map(slot => {
     return {
-      slotId: slot.SlotId,
-      slotTypeId: slot.SlotTypeId,
-      slotType: slot.SlotTypeName,
+      type: slot.type,
       tier: "",
       property: "",
-      materialTypeId: slot.MaterialTypeId,
-      materialType: slot.MaterialTypeName,
+      materialType: slot.materialType,
       material: "",
-      quantity: slot.Quantity
+      quantity: slot.quantity
     };
   });
 }

@@ -1,5 +1,3 @@
-use dcdb;
-
 db.materials.insertMany([
   {
     name: "Blue Vitriol",
