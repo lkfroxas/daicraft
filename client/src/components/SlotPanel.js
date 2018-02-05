@@ -1,5 +1,6 @@
 import React from 'react';
 import BuilderOption from './BuilderOption.js';
+import RunePanel from './RunePanel.js';
 import CraftActions from '../actions/CraftActions.js';
 
 function TierSelect(props) {
@@ -167,7 +168,9 @@ class SlotPanel extends React.Component {
   getSlots() {
     fetch(`/schematics/${this.props.schematic._id}`)
       .then(res => { return res.json() })
-      .then(data => { CraftActions.setSlots(data.slots) });
+      .then(data => {
+        CraftActions.setSchematicData(data);
+      });
   }
 
   componentDidMount() {
@@ -195,6 +198,12 @@ class SlotPanel extends React.Component {
       );
     })
 
+    const runePanel = (!this.props.schematic.hasRune) ? "" : (
+      <RunePanel
+        schematicType={this.props.schematic.type}
+      />
+    );
+
     return (
       <div>
         <table>
@@ -209,6 +218,7 @@ class SlotPanel extends React.Component {
             {slotRows}
           </tbody>
         </table>
+        {runePanel}
         <button onClick={this.handleAddClick.bind(this)}>Add Schematic</button>
       </div>
     );

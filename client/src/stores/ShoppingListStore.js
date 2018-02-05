@@ -5,22 +5,36 @@ import { CraftConstants } from '../constants/CraftConstants.js'
 let list = {};
 
 function addItem(item) {
-  for (var slot of item.slots) {
+  addSlots(item.slots);
+  if (item.rune) {
+    addSlots(item.rune.slots);
+  }
+  console.log('list', list);
+}
+
+function addSlots(slots) {
+  for (var slot of slots) {
     if (list[slot.material]) {
       list[slot.material] += parseInt(slot.quantity, 10);
     } else {
       list[slot.material] = parseInt(slot.quantity, 10);
     }
   }
-  console.log('list', list);
 }
 
 function removeItem(item) {
-  for (var slot of item.slots) {
+  removeSlots(item.slots);
+  if (item.rune) {
+    removeSlots(item.rune.slots)
+  }
+  console.log('list', list);
+}
+
+function removeSlots(slots) {
+  for (var slot of slots) {
     list[slot.material] -= parseInt(slot.quantity, 10);
     if (list[slot.material] === 0) delete list[slot.material];
   }
-  console.log('list', list);
 }
 
 class ShoppingListStoreClass extends EventEmitter {

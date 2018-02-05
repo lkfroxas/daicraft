@@ -34,6 +34,12 @@ class Item extends React.Component {
       }
     });
 
+    const rune = (!this.props.item.hasRune || !this.props.item.rune) ? "" : (
+      <div>
+        Rune: {this.props.item.rune.name}
+      </div>
+    );
+
     return (
       <section>
         <h4>{this.props.item.name}</h4>
@@ -48,6 +54,7 @@ class Item extends React.Component {
             {slots}
           </tbody>
         </table>
+        {rune}
         <button onClick={this.handleRemoveClick.bind(this)}>Delete</button>
       </section>
     );

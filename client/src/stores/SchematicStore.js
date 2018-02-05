@@ -5,19 +5,27 @@ import { CraftConstants } from '../constants/CraftConstants.js'
 let schematic = {
   _id: "",
   name: "",
-  slots: null
+  type: "",
+  slots: [],
+  hasRune: false,
+  rune: null
 };
 
 function setSchematic(_id, name) {
   schematic._id = _id;
   schematic.name = name;
+  schematic.type = "";
   schematic.slots = [];
+  schematic.hasRune = false;
+  schematic.rune = null;
   console.log('id', _id);
   console.log('name', name);
 }
 
-function setSlots(slots) {
-  schematic.slots = slots.map(slot => {
+function setSchematicData(schematicData) {
+  schematic.type = schematicData.type;
+  schematic.hasRune = schematicData.rune;
+  schematic.slots = schematicData.slots.map(slot => {
     return {
       type: slot.type,
       tier: "",
@@ -39,6 +47,10 @@ function setSlotProperty(index, property) {
 
 function setSlotMaterial(index, material) {
   schematic.slots[index].material = material;
+}
+
+function setRune(rune) {
+  schematic.rune = rune;
 }
 
 class SchematicStoreClass extends EventEmitter {
@@ -65,8 +77,8 @@ AppDispatcher.register((payload) => {
   const action = payload.action;
 
   switch (action.actionType) {
-    case CraftConstants.SET_SLOTS:
-      setSlots(action.slots);
+    case CraftConstants.SET_SCHEMATIC_DATA:
+      setSchematicData(action.schematic);
       break;
     case CraftConstants.SELECT_SCHEMATIC:
       setSchematic(action.id, action.schematic);
@@ -79,6 +91,9 @@ AppDispatcher.register((payload) => {
       break;
     case CraftConstants.SELECT_SLOT_MATERIAL:
       setSlotMaterial(action.index, action.material);
+      break;
+    case CraftConstants.SELECT_RUNE:
+      setRune(action.rune);
       break;
     default:
       return true;
