@@ -81,7 +81,7 @@ db.schematics.insertMany([
     name: "Revered Defender Bulwark",
     type: "Shield",
     tier: 3,
-    rune: true,
+    rune: false,
     slots: [
       { type: "Main", materialType: "Metal", quantity: 8 },
       { type: "Defense", materialType: "Metal", quantity: 12 },

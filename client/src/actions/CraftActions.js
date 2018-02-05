@@ -25,10 +25,10 @@ class CraftActions {
     });
   }
 
-  setSlots(slots) {
+  setSchematicData(schematic) {
     AppDispatcher.handleAction({
-      actionType: CraftConstants.SET_SLOTS,
-      slots: slots
+      actionType: CraftConstants.SET_SCHEMATIC_DATA,
+      schematic: schematic
     });
   }
 
@@ -54,6 +54,13 @@ class CraftActions {
       index: index,
       material: material
     });
+  }
+
+  selectRune(rune) {
+    AppDispatcher.handleAction({
+      actionType: CraftConstants.SELECT_RUNE,
+      rune: rune
+    })
   }
 }
 
