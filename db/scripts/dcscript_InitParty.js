@@ -3,7 +3,7 @@ db.party.insertMany([
     name: "Luthais",
     gear: [
       {
-        schematic: "Superior Battlemage Armor",
+        type: "Light Armor",
         names: [
           { tier: 1, name: "Luthais's Armor" },
           { tier: 2, name: "Runic Armor" },
@@ -12,7 +12,25 @@ db.party.insertMany([
         ]
       },
       {
-        schematic: "Encore",
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Luthais's Gauntlets" },
+          { tier: 2, name: "Runic Gauntlets" },
+          { tier: 3, name: "Glyphic Gauntlets" },
+          { tier: 4, name: "Archmage Gauntlets" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Luthais's Greaves" },
+          { tier: 2, name: "Runic Greaves" },
+          { tier: 3, name: "Glyphic Greaves" },
+          { tier: 4, name: "Archmage Greaves" }
+        ]
+      },
+      {
+        type: "Staff",
         names: [
           { tier: 1, name: "Spark" },
           { tier: 2, name: "Bolt" },
@@ -26,7 +44,7 @@ db.party.insertMany([
     name: "Rhaiel",
     gear: [
       {
-        schematic: "Superior Battlemaster Armor",
+        type: "Heavy Armor",
         names: [
           { tier: 1, name: "Rhaiel's Armor" },
           { tier: 2, name: "Dalish Armor" },
@@ -35,7 +53,25 @@ db.party.insertMany([
         ]
       },
       {
-        schematic: "Prismatic Greataxe",
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Rhaiel's Gauntlets" },
+          { tier: 2, name: "Dalish Gauntlets" },
+          { tier: 3, name: "Arlathan Gauntlets" },
+          { tier: 4, name: "Andruil's Gauntlets" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Rhaiel's Greaves" },
+          { tier: 2, name: "Dalish Greaves" },
+          { tier: 3, name: "Arlathan Greaves" },
+          { tier: 4, name: "Andruil's Greaves" }
+        ]
+      },
+      {
+        type: "2-Handed Weapon",
         names: [
           { tier: 1, name: "Trial" },
           { tier: 2, name: "Verdict" },
@@ -49,7 +85,7 @@ db.party.insertMany([
     name: "Hawthorne",
     gear: [
       {
-        schematic: "Superior Prowler Armor",
+        type: "Medium Armor",
         names: [
           { tier: 1, name: "Hawthorne's Armor" },
           { tier: 2, name: "Carta Armor" },
@@ -58,16 +94,416 @@ db.party.insertMany([
         ]
       },
       {
-        schematic: "Stone Stalker's Blade",
+        type: "Arms",
         names: [
-          { tier: 1, name: "Cut" },
-          { tier: 1, name: "Take" },
-          { tier: 2, name: "Beraht's Finger" },
-          { tier: 2, name: "Jarvia's Toe" },
-          { tier: 3, name: "Hot Poker" },
-          { tier: 3, name: "Tingly Point" },
-          { tier: 4, name: "Serpent of Avarice" },
-          { tier: 4, name: "Song of Autumn" },
+          { tier: 1, name: "Hawthorne's Gauntlets" },
+          { tier: 2, name: "Carta Gauntlets" },
+          { tier: 3, name: "Deshyr Gauntlets" },
+          { tier: 4, name: "Paragon Gauntlets" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Hawthorne's Boots" },
+          { tier: 2, name: "Carta Boots" },
+          { tier: 3, name: "Deshyr Boots" },
+          { tier: 4, name: "Paragon Boots" }
+        ]
+      },
+      {
+        type: "Dagger",
+        names: [
+          { tier: 1, name: "Cut", descr: "Main-Hand" },
+          { tier: 1, name: "Take", descr: "Off-Hand" },
+          { tier: 2, name: "Beraht's Finger", descr: "Main-Hand" },
+          { tier: 2, name: "Jarvia's Toe", descr: "Off-Hand" },
+          { tier: 3, name: "Hot Poker", descr: "Main-Hand" },
+          { tier: 3, name: "Tingly Point", descr: "Off-Hand" },
+          { tier: 4, name: "Serpent of Avarice", descr: "Main-Hand" },
+          { tier: 4, name: "Song of Autumn", descr: "Off-Hand" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Cassandra",
+    gear: [
+      {
+        schematic: "Heavy Armor",
+        names: [
+          { tier: 1, name: "Cassandra's Armor" },
+          { tier: 2, name: "Seeker Armor" },
+          { tier: 3, name: "Founder's Armor" },
+          { tier: 4, name: "Divine Armor" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Cassandra's Gauntlets" },
+          { tier: 2, name: "Seeker Gauntlets" },
+          { tier: 3, name: "Founder's Gauntlets" },
+          { tier: 4, name: "Divine Gauntlets" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Cassandra's Boots" },
+          { tier: 2, name: "Seeker Boots" },
+          { tier: 3, name: "Founder's Boots" },
+          { tier: 4, name: "Divine Boots" }
+        ]
+      },
+      {
+        type: "1-Handed Weapon",
+        names: [
+          { tier: 1, name: "Piety" },
+          { tier: 2, name: "Faith" },
+          { tier: 3, name: "Conviction" },
+          { tier: 4, name: "Divinity" }
+        ]
+      },
+      {
+        type: "Shield",
+        names: [
+          { tier: 1, name: "Piety's Bulwark" },
+          { tier: 2, name: "Faith's Bulwark" },
+          { tier: 3, name: "Conviction's Bulwark" },
+          { tier: 4, name: "Divinity's Bulwark" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Varric",
+    gear: [
+      {
+        schematic: "Medium Armor",
+        names: [
+          { tier: 1, name: "Varric's Coat" },
+          { tier: 2, name: "Guild Coat" },
+          { tier: 3, name: "Telltale Coat" },
+          { tier: 4, name: "Viscount Coat" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Varric's Gloves" },
+          { tier: 2, name: "Guild Gloves" },
+          { tier: 3, name: "Telltale Gloves" },
+          { tier: 4, name: "Viscount Gloves" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Varric's Boots" },
+          { tier: 2, name: "Guild Boots" },
+          { tier: 3, name: "Telltale Boots" },
+          { tier: 4, name: "Viscount Boots" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Vivienne",
+    gear: [
+      {
+        schematic: "Light Armor",
+        names: [
+          { tier: 1, name: "Vivienne's Robes" },
+          { tier: 2, name: "Enchanter Robes" },
+          { tier: 3, name: "Courtier Robes" },
+          { tier: 4, name: "Grand Enchanter Robes", descr: "Not Divine" },
+          { tier: 4, name: "Divine Robes", descr: "Divine" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Vivienne's Gauntlets" },
+          { tier: 2, name: "Enchanter Gauntlets" },
+          { tier: 3, name: "Courtier Gauntlets" },
+          { tier: 4, name: "Grand Enchanter Gauntlets", descr: "Not Divine" },
+          { tier: 4, name: "Divine Gauntlets", descr: "Divine" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Vivienne's Boots" },
+          { tier: 2, name: "Enchanter Boots" },
+          { tier: 3, name: "Courtier Boots" },
+          { tier: 4, name: "Grand Enchanter Boots", descr: "Not Divine" },
+          { tier: 4, name: "Divine Boots", descr: "Divine" }
+        ]
+      },
+      {
+        type: "Staff",
+        names: [
+          { tier: 1, name: "Refinement" },
+          { tier: 2, name: "Elegance" },
+          { tier: 3, name: "Sophistication" },
+          { tier: 4, name: "Grandeur", descr: "Not Divine" },
+          { tier: 4, name: "Victoria's Decree", descr: "Divine" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Blackwall",
+    gear: [
+      {
+        schematic: "Heavy Armor",
+        names: [
+          { tier: 1, name: "Blackwall's Armor" },
+          { tier: 2, name: "Warden-Constable Armor" },
+          { tier: 3, name: "Condemned Armor" },
+          { tier: 4, name: "Thom Rainier's Armor" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Blackwall's Gauntlets" },
+          { tier: 2, name: "Warden-Constable Gauntlets" },
+          { tier: 3, name: "Condemned Gauntlets" },
+          { tier: 4, name: "Thom Rainier's Gauntlets" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Blackwall's Greaves" },
+          { tier: 2, name: "Warden-Constable Greaves" },
+          { tier: 3, name: "Condemned Greaves" },
+          { tier: 4, name: "Thom Rainier's Greaves" }
+        ]
+      },
+      {
+        type: "1-Handed Weapon",
+        names: [
+          { tier: 1, name: "Warden's Hand" },
+          { tier: 2, name: "Griffon Claw" },
+          { tier: 3, name: "Traitor's Punishment" },
+          { tier: 4, name: "Redemption" }
+        ]
+      },
+      {
+        type: "Shield",
+        names: [
+          { tier: 1, name: "Warden's Aegis" },
+          { tier: 2, name: "Griffon Wing" },
+          { tier: 3, name: "Traitor's Burden" },
+          { tier: 4, name: "Atonement" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Cole",
+    gear: [
+      {
+        schematic: "Medium Armor",
+        names: [
+          { tier: 1, name: "Cole's Coat" },
+          { tier: 2, name: "Spirit Coat" },
+          { tier: 3, name: "Rift Coat" },
+          { tier: 4, name: "Fade Coat" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Cole's Gloves" },
+          { tier: 2, name: "Spirit Gloves" },
+          { tier: 3, name: "Rift Gloves" },
+          { tier: 4, name: "Fade Gloves" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Cole's Boots" },
+          { tier: 2, name: "Spirit Boots" },
+          { tier: 3, name: "Rift Boots" },
+          { tier: 4, name: "Fade Boots" }
+        ]
+      },
+      {
+        type: "Bow",
+        names: [
+          { tier: 1, name: "Charity" },
+          { tier: 2, name: "Kindness" },
+          { tier: 3, name: "Mercy" },
+          { tier: 4, name: "Compassion" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Solas",
+    gear: [
+      {
+        schematic: "Light Armor",
+        names: [
+          { tier: 1, name: "Solas's Robes" },
+          { tier: 2, name: "Apostate Robes" },
+          { tier: 3, name: "Old Wolf Robes" },
+          { tier: 4, name: "Rebel God Robes" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Solas's Gloves" },
+          { tier: 2, name: "Apostate Gloves" },
+          { tier: 3, name: "Old Wolf Gloves" },
+          { tier: 4, name: "Rebel God Gloves" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Solas's Boots" },
+          { tier: 2, name: "Apostate Boots" },
+          { tier: 3, name: "Old Wolf Boots" },
+          { tier: 4, name: "Rebel God Boots" }
+        ]
+      },
+      {
+        type: "Staff",
+        names: [
+          { tier: 1, name: "The Wanderer" },
+          { tier: 2, name: "The Dreamer" },
+          { tier: 3, name: "The Reckoning" },
+          { tier: 4, name: "The Lonely Path" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Iron Bull",
+    gear: [
+      {
+        schematic: "Heavy Armor",
+        names: [
+          { tier: 1, name: "Bull's Armor" },
+          { tier: 2, name: "Chargers Armor" },
+          { tier: 3, name: "Tal-Vashoth Armor" },
+          { tier: 4, name: "Kadan Armor" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Bull's Gauntlets" },
+          { tier: 2, name: "Chargers Gauntlets" },
+          { tier: 3, name: "Tal-Vashoth Gauntlets" },
+          { tier: 4, name: "Kadan Gauntlets" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Bull's Boots" },
+          { tier: 2, name: "Chargers Boots" },
+          { tier: 3, name: "Tal-Vashoth Boots" },
+          { tier: 4, name: "Kadan Boots" }
+        ]
+      },
+      {
+        type: "2-Handed Weapon",
+        names: [
+          { tier: 1, name: "Mercenary" },
+          { tier: 2, name: "Marauder" },
+          { tier: 3, name: "Bloodrager" },
+          { tier: 4, name: "Chief" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Sera",
+    gear: [
+      {
+        schematic: "Medium Armor",
+        names: [
+          { tier: 1, name: "Sera's Armor" },
+          { tier: 2, name: "Prankster Armor" },
+          { tier: 3, name: "Rebel Armor" },
+          { tier: 4, name: "Red Jenny's Armor" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Sera's Gloves" },
+          { tier: 2, name: "Prankster Gloves" },
+          { tier: 3, name: "Rebel Gloves" },
+          { tier: 4, name: "Red Jenny's Gloves" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Sera's Boots" },
+          { tier: 2, name: "Prankster Boots" },
+          { tier: 3, name: "Rebel Boots" },
+          { tier: 4, name: "Red Jenny's Boots" }
+        ]
+      },
+      {
+        type: "Bow",
+        names: [
+          { tier: 1, name: "Agreeable Girl" },
+          { tier: 2, name: "Tales of Rebellion" },
+          { tier: 3, name: "Like a Dragon" },
+          { tier: 4, name: "Tempt Your Fate" }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Dorian",
+    gear: [
+      {
+        schematic: "Light Armor",
+        names: [
+          { tier: 1, name: "Dorian's Robes" },
+          { tier: 2, name: "Altus Robes" },
+          { tier: 3, name: "Magister Robes" },
+          { tier: 4, name: "Lucerni Robes" }
+        ]
+      },
+      {
+        type: "Arms",
+        names: [
+          { tier: 1, name: "Dorian's Gloves" },
+          { tier: 2, name: "Altus Gloves" },
+          { tier: 3, name: "Magister Gloves" },
+          { tier: 4, name: "Lucerni Gloves" }
+        ]
+      },
+      {
+        type: "Legs",
+        names: [
+          { tier: 1, name: "Dorian's Boots" },
+          { tier: 2, name: "Altus Boots" },
+          { tier: 3, name: "Magister Boots" },
+          { tier: 4, name: "Lucerni Boots" }
+        ]
+      },
+      {
+        type: "Staff",
+        names: [
+          { tier: 1, name: "Certain Flare" },
+          { tier: 2, name: "Sense of Style" },
+          { tier: 3, name: "True Natural" },
+          { tier: 4, name: "Impeccable Taste" }
         ]
       }
     ]
