@@ -5,12 +5,7 @@ import SlotPanel from './SlotPanel.js';
 import CraftActions from '../actions/CraftActions.js';
 
 class SchematicTypeSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      schematicTypes: []
-    };
-  }
+  state = { schematicTypes: [] };
 
   componentDidMount() {
     fetch('/schematicTypes')
@@ -40,12 +35,7 @@ class SchematicTypeSelect extends React.Component {
 }
 
 class SchematicSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      schematics: []
-    };
-  }
+  state = { schematics: [] };
 
   getSchematics() {
     fetch(`/schematics?schematicType=${this.props.schematicType}`)
@@ -85,12 +75,7 @@ class SchematicSelect extends React.Component {
 }
 
 class Builder extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      schematicType: "",
-    };
-  }
+  state = { schematicType: "" };
 
   handleSchematicTypeChange(event) {
     this.setState({

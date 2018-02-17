@@ -24,12 +24,7 @@ function RuneTierSelect(props) {
 }
 
 class RuneSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      runes: []
-    }
-  }
+  state = { runes: [] };
 
   getRunes() {
     fetch(`/runes?tier=${this.props.tier}&schematicType=${this.props.schematicType}`)
@@ -69,12 +64,7 @@ class RuneSelect extends React.Component {
 }
 
 class RunePanel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tier: ""
-    };
-  }
+  state = { tier: "" };
 
   handleTierChange(event) {
     this.setState({

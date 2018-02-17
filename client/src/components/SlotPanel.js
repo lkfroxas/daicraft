@@ -25,12 +25,7 @@ function TierSelect(props) {
 }
 
 class PropertySelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      properties: []
-    };
-  }
+  state = { properties: [] };
 
   getProperties() {
     fetch(`/properties?tier=${this.props.tier}&slotType=${this.props.type}&materialType=${this.props.materialType}`)
@@ -70,12 +65,7 @@ class PropertySelect extends React.Component {
 }
 
 class MaterialSelect extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      materials: []
-    };
-  }
+  state = { materials: [] };
 
   getMaterials() {
     fetch(`/materials?tier=${this.props.tier}&materialType=${this.props.materialType}&property=${this.props.property}`)
@@ -115,12 +105,7 @@ class MaterialSelect extends React.Component {
 }
 
 class Slot extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      property: ""
-    };
-  }
+  state = { property: "" };
 
   handleTierChange(event) {
     this.setState({
