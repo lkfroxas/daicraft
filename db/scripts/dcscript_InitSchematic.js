@@ -91,7 +91,7 @@ db.schematics.insertMany([
   },
   {
     name: "Cowl of the Pure",
-    type: "Light Armor",
+    type: "Light Helm",
     tier: 4,
     rune: false,
     slots: [
@@ -101,7 +101,7 @@ db.schematics.insertMany([
   },
   {
     name: "Stone Stalker Mask",
-    type: "Medium Armor",
+    type: "Medium Helm",
     tier: 4,
     rune: false,
     slots: [
@@ -111,7 +111,7 @@ db.schematics.insertMany([
   },
   {
     name: "Revered Defender Helm",
-    type: "Heavy Armor",
+    type: "Heavy Helm",
     tier: 4,
     rune: false,
     slots: [

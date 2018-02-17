@@ -12,6 +12,7 @@ var schematics = require('./routes/schematics');
 var properties = require('./routes/properties');
 var materials = require('./routes/materials');
 var runes = require('./routes/runes');
+var party = require('./routes/party');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/schematics', schematics);
 app.use('/properties', properties);
 app.use('/materials', materials);
 app.use('/runes', runes);
+app.use('/party', party);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
