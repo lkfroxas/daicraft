@@ -1,4 +1,5 @@
 import React from 'react';
+import PartyPanel from './PartyPanel.js';
 import CraftActions from '../actions/CraftActions.js';
 
 function ItemSlot(props) {
@@ -15,6 +16,15 @@ function ItemSlot(props) {
 class Item extends React.Component {
   handleRemoveClick() {
     CraftActions.removeItem(this.props.index, this.props.item);
+  }
+
+  getTier() {
+    const mainSlot = this.props.item.slots.find(slot => slot.type === "Main");
+    if (mainSlot)
+      return mainSlot.tier;
+
+    const tiers = this.props.item.slots.map(slot => parseInt(slot.tier, 10));
+    return Math.max.apply(null, tiers);
   }
 
   render() {
@@ -40,6 +50,15 @@ class Item extends React.Component {
       </div>
     );
 
+    const partyMember = (
+      <div>
+        <PartyPanel
+          type={this.props.item.type}
+          tier={this.getTier()}
+        />
+      </div>
+    );
+
     return (
       <section>
         <h4>{this.props.item.name}</h4>
@@ -54,6 +73,7 @@ class Item extends React.Component {
             {slots}
           </tbody>
         </table>
+        {partyMember}
         {rune}
         <button onClick={this.handleRemoveClick.bind(this)}>Delete</button>
       </section>
