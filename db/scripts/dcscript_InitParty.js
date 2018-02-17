@@ -12,6 +12,15 @@ db.party.insertMany([
         ]
       },
       {
+        type: "Light Helm",
+        names: [
+          { tier: 1, name: "Luthais's Cowl" },
+          { tier: 2, name: "Runic Cowl" },
+          { tier: 3, name: "Glyphic Cowl" },
+          { tier: 4, name: "Archmage Cowl" }
+        ]
+      },
+      {
         type: "Arms",
         names: [
           { tier: 1, name: "Luthais's Gauntlets" },
@@ -50,6 +59,15 @@ db.party.insertMany([
           { tier: 2, name: "Dalish Armor" },
           { tier: 3, name: "Arlathan Armor" },
           { tier: 4, name: "Andruil's Armor" }
+        ]
+      },
+      {
+        type: "Heavy Helm",
+        names: [
+          { tier: 1, name: "Rhaiel's Helm" },
+          { tier: 2, name: "Dalish Helm" },
+          { tier: 3, name: "Arlathan Helm" },
+          { tier: 4, name: "Andruil's Helm" }
         ]
       },
       {
@@ -94,6 +112,15 @@ db.party.insertMany([
         ]
       },
       {
+        type: "Medium Helm",
+        names: [
+          { tier: 1, name: "Hawthorne's Mask" },
+          { tier: 2, name: "Carta Mask" },
+          { tier: 3, name: "Deshyr Mask" },
+          { tier: 4, name: "Paragon Mask" }
+        ]
+      },
+      {
         type: "Arms",
         names: [
           { tier: 1, name: "Hawthorne's Gauntlets" },
@@ -130,12 +157,21 @@ db.party.insertMany([
     name: "Cassandra",
     gear: [
       {
-        schematic: "Heavy Armor",
+        type: "Heavy Armor",
         names: [
           { tier: 1, name: "Cassandra's Armor" },
           { tier: 2, name: "Seeker Armor" },
           { tier: 3, name: "Founder's Armor" },
           { tier: 4, name: "Divine Armor" }
+        ]
+      },
+      {
+        type: "Heavy Helm",
+        names: [
+          { tier: 1, name: "Cassandra's Helm" },
+          { tier: 2, name: "Seeker Helm" },
+          { tier: 3, name: "Founder's Helm" },
+          { tier: 4, name: "Divine Helm" }
         ]
       },
       {
@@ -180,12 +216,21 @@ db.party.insertMany([
     name: "Varric",
     gear: [
       {
-        schematic: "Medium Armor",
+        type: "Medium Armor",
         names: [
           { tier: 1, name: "Varric's Coat" },
           { tier: 2, name: "Guild Coat" },
           { tier: 3, name: "Telltale Coat" },
           { tier: 4, name: "Viscount Coat" }
+        ]
+      },
+      {
+        type: "Medium Helm",
+        names: [
+          { tier: 1, name: "Varric's Mask" },
+          { tier: 2, name: "Guild Mask" },
+          { tier: 3, name: "Telltale Mask" },
+          { tier: 4, name: "Viscount Mask" }
         ]
       },
       {
@@ -212,13 +257,23 @@ db.party.insertMany([
     name: "Vivienne",
     gear: [
       {
-        schematic: "Light Armor",
+        type: "Light Armor",
         names: [
           { tier: 1, name: "Vivienne's Robes" },
           { tier: 2, name: "Enchanter Robes" },
           { tier: 3, name: "Courtier Robes" },
           { tier: 4, name: "Grand Enchanter Robes", descr: "Not Divine" },
           { tier: 4, name: "Divine Robes", descr: "Divine" }
+        ]
+      },
+      {
+        type: "Light Helm",
+        names: [
+          { tier: 1, name: "Vivienne's Cowl" },
+          { tier: 2, name: "Enchanter Cowl" },
+          { tier: 3, name: "Courtier Cowl" },
+          { tier: 4, name: "Grand Enchanter Cowl", descr: "Not Divine" },
+          { tier: 4, name: "Divine Cowl", descr: "Divine" }
         ]
       },
       {
@@ -257,12 +312,21 @@ db.party.insertMany([
     name: "Blackwall",
     gear: [
       {
-        schematic: "Heavy Armor",
+        type: "Heavy Armor",
         names: [
           { tier: 1, name: "Blackwall's Armor" },
           { tier: 2, name: "Warden-Constable Armor" },
           { tier: 3, name: "Condemned Armor" },
           { tier: 4, name: "Thom Rainier's Armor" }
+        ]
+      },
+      {
+        type: "Heavy Helm",
+        names: [
+          { tier: 1, name: "Blackwall's Helm" },
+          { tier: 2, name: "Warden-Constable Helm" },
+          { tier: 3, name: "Condemned Helm" },
+          { tier: 4, name: "Thom Rainier's Helm" }
         ]
       },
       {
@@ -307,12 +371,21 @@ db.party.insertMany([
     name: "Cole",
     gear: [
       {
-        schematic: "Medium Armor",
+        type: "Medium Armor",
         names: [
           { tier: 1, name: "Cole's Coat" },
           { tier: 2, name: "Spirit Coat" },
           { tier: 3, name: "Rift Coat" },
           { tier: 4, name: "Fade Coat" }
+        ]
+      },
+      {
+        type: "Medium Helm",
+        names: [
+          { tier: 1, name: "Cole's Mask" },
+          { tier: 2, name: "Spirit Mask" },
+          { tier: 3, name: "Rift Mask" },
+          { tier: 4, name: "Fade Mask" }
         ]
       },
       {
@@ -348,12 +421,21 @@ db.party.insertMany([
     name: "Solas",
     gear: [
       {
-        schematic: "Light Armor",
+        type: "Light Armor",
         names: [
           { tier: 1, name: "Solas's Robes" },
           { tier: 2, name: "Apostate Robes" },
           { tier: 3, name: "Old Wolf Robes" },
           { tier: 4, name: "Rebel God Robes" }
+        ]
+      },
+      {
+        type: "Light Helm",
+        names: [
+          { tier: 1, name: "Solas's Cowl" },
+          { tier: 2, name: "Apostate Cowl" },
+          { tier: 3, name: "Old Wolf Cowl" },
+          { tier: 4, name: "Rebel God Cowl" }
         ]
       },
       {
@@ -389,7 +471,7 @@ db.party.insertMany([
     name: "Iron Bull",
     gear: [
       {
-        schematic: "Heavy Armor",
+        type: "Heavy Armor",
         names: [
           { tier: 1, name: "Bull's Armor" },
           { tier: 2, name: "Chargers Armor" },
@@ -430,12 +512,21 @@ db.party.insertMany([
     name: "Sera",
     gear: [
       {
-        schematic: "Medium Armor",
+        type: "Medium Armor",
         names: [
           { tier: 1, name: "Sera's Armor" },
           { tier: 2, name: "Prankster Armor" },
           { tier: 3, name: "Rebel Armor" },
           { tier: 4, name: "Red Jenny's Armor" }
+        ]
+      },
+      {
+        type: "Medium Helm",
+        names: [
+          { tier: 1, name: "Sera's Mask" },
+          { tier: 2, name: "Prankster Mask" },
+          { tier: 3, name: "Rebel Mask" },
+          { tier: 4, name: "Red Jenny's Mask" }
         ]
       },
       {
@@ -471,12 +562,21 @@ db.party.insertMany([
     name: "Dorian",
     gear: [
       {
-        schematic: "Light Armor",
+        type: "Light Armor",
         names: [
           { tier: 1, name: "Dorian's Robes" },
           { tier: 2, name: "Altus Robes" },
           { tier: 3, name: "Magister Robes" },
           { tier: 4, name: "Lucerni Robes" }
+        ]
+      },
+      {
+        type: "Light Helm",
+        names: [
+          { tier: 1, name: "Dorian's Cowl" },
+          { tier: 2, name: "Altus Cowl" },
+          { tier: 3, name: "Magister Cowl" },
+          { tier: 4, name: "Lucerni Cowl" }
         ]
       },
       {
