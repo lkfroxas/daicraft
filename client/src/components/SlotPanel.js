@@ -1,17 +1,26 @@
 import React from 'react';
-import BuilderOption from './BuilderOption.js';
+import SelectOption from './shared/SelectOption.js';
+import Select from './shared/Select.js';
 import RunePanel from './RunePanel.js';
 import CraftActions from '../actions/CraftActions.js';
 
 function TierSelect(props) {
+  const tiers = ["1", "2", "3", "4"].map((tier, index) => {
+    return (
+      <SelectOption
+        key={index}
+        value={tier}
+        name={tier}
+      />
+    );
+  });
+
   return (
-    <select onChange={props.onChange}>
-      <option value="">Tier</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </select>
+    <Select
+      onChange={props.onChange}
+      blankOptionName="Tier"
+      options={tiers}
+    />
   );
 }
 
@@ -42,7 +51,7 @@ class PropertySelect extends React.Component {
   render() {
     const options = this.state.properties.map(property => {
       return (
-        <BuilderOption
+        <SelectOption
           key={property}
           value={property}
           name={property}
@@ -51,10 +60,11 @@ class PropertySelect extends React.Component {
     });
 
     return (
-      <select onChange={this.props.onChange}>
-        <option value="">Property</option>
-        {options}
-      </select>
+      <Select
+        onChange={this.props.onChange}
+        blankOptionName="Property"
+        options={options}
+      />
     );
   }
 }
@@ -86,7 +96,7 @@ class MaterialSelect extends React.Component {
   render() {
     const options = this.state.materials.map(material => {
       return (
-        <BuilderOption
+        <SelectOption
           key={material}
           value={material}
           name={material}
@@ -95,10 +105,11 @@ class MaterialSelect extends React.Component {
     });
 
     return (
-      <select onChange={this.props.onChange}>
-        <option value="">Material</option>
-        {options}
-      </select>
+      <Select
+        onChange={this.props.onChange}
+        blankOptionName="Material"
+        options={options}
+      />
     );
   }
 }

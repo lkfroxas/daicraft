@@ -1,14 +1,25 @@
 import React from 'react';
-import BuilderOption from './BuilderOption.js';
+import SelectOption from './shared/SelectOption.js';
+import Select from './shared/Select.js';
 import CraftActions from '../actions/CraftActions.js';
 
 function RuneTierSelect(props) {
+  const tiers = ["2", "3"].map((tier, index) => {
+    return (
+      <SelectOption
+        key={index}
+        value={tier}
+        name={tier}
+      />
+    );
+  });
+
   return (
-    <select onChange={props.onChange}>
-      <option value="">Tier</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
+    <Select
+      onChange={props.onChange}
+      blankOptionName="Tier"
+      options={tiers}
+    />
   );
 }
 
@@ -39,7 +50,7 @@ class RuneSelect extends React.Component {
   render() {
     const options = this.state.runes.map(rune => {
       return (
-        <BuilderOption
+        <SelectOption
           key={rune._id}
           value={rune._id}
           name={rune.name}
@@ -48,10 +59,11 @@ class RuneSelect extends React.Component {
     });
 
     return (
-      <select onChange={this.props.onChange}>
-        <option value="">Rune</option>
-        {options}
-      </select>
+      <Select
+        onChange={this.props.onChange}
+        blankOptionName="Rune"
+        options={options}
+      />
     );
   }
 }

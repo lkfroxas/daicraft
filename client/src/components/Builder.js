@@ -1,5 +1,6 @@
 import React from 'react';
-import BuilderOption from './BuilderOption.js';
+import SelectOption from './shared/SelectOption.js';
+import Select from './shared/Select.js';
 import SlotPanel from './SlotPanel.js';
 import CraftActions from '../actions/CraftActions.js';
 
@@ -20,7 +21,7 @@ class SchematicTypeSelect extends React.Component {
   render() {
     const options = this.state.schematicTypes.map(type => {
       return (
-        <BuilderOption
+        <SelectOption
           key={type}
           value={type}
           name={type}
@@ -29,10 +30,11 @@ class SchematicTypeSelect extends React.Component {
     });
 
     return (
-      <select onChange={this.props.onChange}>
-        <option value="">Schematic Type</option>
-        {options}
-      </select>
+      <Select
+        onChange={this.props.onChange}
+        blankOptionName="Schematic Type"
+        options={options}
+      />
     );
   }
 }
@@ -64,7 +66,7 @@ class SchematicSelect extends React.Component {
   render() {
     const schematicOptions = this.state.schematics.map(schematic => {
       return (
-        <BuilderOption
+        <SelectOption
           key={schematic._id}
           value={schematic._id}
           name={schematic.name}
@@ -73,10 +75,11 @@ class SchematicSelect extends React.Component {
     });
 
     return (
-      <select onChange={this.props.onChange}>
-        <option value="">Schematic</option>
-        {schematicOptions}
-      </select>
+      <Select
+        onChange={this.props.onChange}
+        blankOptionName="Schematic"
+        options={schematicOptions}
+      />
     );
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import BuilderOption from './BuilderOption.js';
+import SelectOption from './shared/SelectOption.js';
+import Select from './shared/Select.js';
 
 function GearName(props) {
   let descr = (props.descr) ? `(${props.descr})` : "";
@@ -60,7 +61,7 @@ class PartySelect extends React.Component {
   render() {
     const options = this.state.partyMembers.map(member => {
       return (
-        <BuilderOption
+        <SelectOption
           key={member._id}
           value={member._id}
           name={member.name}
@@ -69,10 +70,11 @@ class PartySelect extends React.Component {
     });
 
     return (
-      <select onChange={this.props.onChange}>
-        <option value="">Party Member</option>
-        {options}
-      </select>
+      <Select
+        onChange={this.props.onChange}
+        blankOptionName="Party Member"
+        options={options}
+      />
     );
   }
 }
