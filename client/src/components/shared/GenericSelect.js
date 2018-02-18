@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import SelectOption from './SelectOption.js';
 import Select from './Select.js';
 
@@ -8,7 +8,7 @@ let GenericSelect = function(props) {
       <SelectOption
         key={index}
         value={option.value}
-        name={option.value}
+        name={option.name}
       />
     );
   });
