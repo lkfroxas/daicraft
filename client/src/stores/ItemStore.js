@@ -5,7 +5,7 @@ import { CraftConstants } from '../constants/CraftConstants.js'
 let items = [];
 
 function addItem(item) {
-  items.push(Object.assign({}, item));
+  items.push(JSON.parse(JSON.stringify(item)));
   console.log('items', items);
 }
 

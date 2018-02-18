@@ -2,8 +2,8 @@ import React from 'react';
 import SchematicStore from '../stores/SchematicStore.js';
 import ItemStore from '../stores/ItemStore.js';
 import ShoppingListStore from '../stores/ShoppingListStore.js';
-import Builder from './Builder.js';
-import ItemList from './ItemList.js';
+import BuilderSection from './builder/BuilderSection.js';
+import ItemList from './item_list/ItemList.js';
 import ShoppingList from './ShoppingList.js';
 
 function getCraftState() {
@@ -48,7 +48,7 @@ class CraftingApp extends React.Component {
 
     return (
       <section>
-        <Builder
+        <BuilderSection
           schematic={this.state.schematic}
         />
         {items}
