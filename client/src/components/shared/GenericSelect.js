@@ -1,0 +1,25 @@
+import React from 'React';
+import SelectOption from './SelectOption.js';
+import Select from './Select.js';
+
+let GenericSelect = function(props) {
+  const options = props.options.map((option, index) => {
+    return (
+      <SelectOption
+        key={index}
+        value={option.value}
+        name={option.value}
+      />
+    );
+  });
+
+  return (
+    <Select
+      onChange={props.onChange}
+      blankOptionName={props.name}
+      options={options}
+    />
+  );
+}
+
+export default GenericSelect;
