@@ -3,10 +3,10 @@ import SelectOption from './SelectOption.js';
 import Select from './Select.js';
 
 let GenericSelect = function(props) {
-  const options = props.options.map((option, index) => {
+  const options = props.options.map(option => {
     return (
       <SelectOption
-        key={index}
+        key={option.value}
         value={option.value}
         name={option.name}
       />
