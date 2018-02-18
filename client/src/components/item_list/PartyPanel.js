@@ -1,6 +1,6 @@
 import React from 'react';
-import SelectOption from './shared/SelectOption.js';
-import Select from './shared/Select.js';
+import SelectOption from '../shared/SelectOption.js';
+import Select from '../shared/Select.js';
 
 function GearName(props) {
   let descr = (props.descr) ? `(${props.descr})` : "";
