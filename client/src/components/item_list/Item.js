@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemSlotTable from './ItemSlotTable.js';
-import PartyPanel from './PartyPanel.js';
+import PartyPanel from './party/PartyPanel.js';
 import CraftActions from '../../actions/CraftActions.js';
 
 class Item extends React.Component {
