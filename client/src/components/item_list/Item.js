@@ -2,7 +2,7 @@ import React from 'react';
 import ItemSlotTable from './ItemSlotTable.js';
 import PartyPanel from './party/PartyPanel.js';
 import CraftActions from '../../actions/CraftActions.js';
-import { Panel } from 'react-bootstrap';
+import { Panel, Button } from 'react-bootstrap';
 
 class Item extends React.Component {
   handleRemoveClick() {
@@ -49,7 +49,7 @@ class Item extends React.Component {
               />
               {rune}
               {partyMember}
-              <button onClick={this.handleRemoveClick.bind(this)}>Delete</button>
+              <Button onClick={this.handleRemoveClick.bind(this)}>Delete</Button>
             </Panel.Body>
           </Panel.Collapse>
         </Panel>
