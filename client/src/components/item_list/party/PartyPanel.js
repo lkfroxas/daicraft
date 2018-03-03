@@ -1,6 +1,7 @@
 import React from 'react';
 import GearNameList from './GearNameList.js';
 import PartySelect from './PartySelect.js';
+import { Panel, Grid, Row, Col } from 'react-bootstrap';
 
 class PartyPanel extends React.Component {
   state = { partyMember: null };
@@ -21,14 +22,26 @@ class PartyPanel extends React.Component {
     );
 
     return (
-      <div>
-        Party Member
-        <PartySelect
-          type={this.props.type}
-          onChange={this.handlePartyMemberChange.bind(this)}
-        />
-        {gearNames}
-      </div>
+      <Panel>
+        <Panel.Heading>
+          Party Member
+        </Panel.Heading>
+        <Panel.Body>
+          <Grid fluid>
+            <Row>
+              <Col lg={6}>
+                <PartySelect
+                  type={this.props.type}
+                  onChange={this.handlePartyMemberChange.bind(this)}
+                />
+              </Col>
+              <Col lg={6}>
+                {gearNames}
+              </Col>
+            </Row>
+          </Grid>
+        </Panel.Body>
+      </Panel>
     );
   }
 }
