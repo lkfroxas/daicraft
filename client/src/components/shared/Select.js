@@ -1,11 +1,15 @@
 import React from 'react';
+import { FormControl } from 'react-bootstrap';
 
 let Select = function(props) {
   return (
-    <select onChange={props.onChange}>
+    <FormControl
+      onChange={props.onChange}
+      componentClass="select"
+      placeholder="">
       <option value="">{props.blankOptionName}</option>
       {props.options}
-    </select>
+    </FormControl>
   );
 };
 
