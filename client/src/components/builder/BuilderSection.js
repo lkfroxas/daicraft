@@ -4,8 +4,6 @@ import SchematicAssemble from './SchematicAssemble.js';
 import { Panel } from 'react-bootstrap';
 
 class BuilderSection extends React.Component {
-  state = { open: true };
-
   render() {
     const schematicAssemble = (this.props.schematic.name === "") ? "" : (
       <SchematicAssemble
