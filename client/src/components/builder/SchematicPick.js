@@ -2,6 +2,7 @@ import React from 'react';
 import SchematicTypeSelect from './SchematicTypeSelect.js';
 import SchematicSelect from './SchematicSelect.js';
 import CraftActions from '../../actions/CraftActions.js';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class SchematicPick extends React.Component {
   state = { schematicType: "" };
@@ -30,10 +31,18 @@ class SchematicPick extends React.Component {
 
     return (
       <div>
-        <SchematicTypeSelect
-          onChange={this.handleSchematicTypeChange.bind(this)}
-        />
-        {selectSchematic}
+        <Grid fluid>
+          <Row>
+            <Col lg={6}>
+              <SchematicTypeSelect
+                onChange={this.handleSchematicTypeChange.bind(this)}
+              />
+            </Col>
+            <Col lg={6}>
+              {selectSchematic}
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
