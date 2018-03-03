@@ -1,6 +1,7 @@
 import React from 'react';
 import Slot from './Slot.js'
 import CraftActions from '../../../actions/CraftActions.js';
+import { Table } from 'react-bootstrap';
 
 class SlotPanel extends React.Component {
   getSlots() {
@@ -34,8 +35,8 @@ class SlotPanel extends React.Component {
 
     return (
       <div>
-        <table>
-          <tbody>
+        <Table condensed>
+          <thead>
             <tr>
               <th>Slot</th>
               <th>Tier</th>
@@ -43,9 +44,11 @@ class SlotPanel extends React.Component {
               <th>Material</th>
               <th>Quantity</th>
             </tr>
+          </thead>
+          <tbody>
             {slotRows}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemSlot from './ItemSlot.js';
+import { Table } from 'react-bootstrap';
 
 let ItemSlotTable = function(props) {
   const slots = props.slots.map((slot, index) => {
@@ -19,17 +20,19 @@ let ItemSlotTable = function(props) {
   });
 
   return (
-    <table>
-      <tbody>
+    <Table condensed>
+      <thead>
         <tr>
           <th>Slot</th>
           <th>Property</th>
           <th>Material</th>
           <th>Quantity</th>
         </tr>
+      </thead>
+      <tbody>
         {slots}
       </tbody>
-    </table>
+    </Table>
   );
 }
 

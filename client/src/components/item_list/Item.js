@@ -1,7 +1,9 @@
 import React from 'react';
 import ItemSlotTable from './ItemSlotTable.js';
+import ItemRune from './ItemRune.js';
 import PartyPanel from './party/PartyPanel.js';
 import CraftActions from '../../actions/CraftActions.js';
+import { Panel, Button, Grid, Row, Col } from 'react-bootstrap';
 
 class Item extends React.Component {
   handleRemoveClick() {
@@ -18,31 +20,58 @@ class Item extends React.Component {
   }
 
   render() {
-    const rune = (!this.props.item.hasRune || !this.props.item.rune) ? "" : (
-      <div>
-        Rune: {this.props.item.rune.name}
-      </div>
+    const partyMember = (
+      <PartyPanel
+        type={this.props.item.type}
+        tier={this.getTier()}
+      />
     );
 
-    const partyMember = (
-      <div>
-        <PartyPanel
-          type={this.props.item.type}
-          tier={this.getTier()}
-        />
-      </div>
+    const bottomRow = (!this.props.item.hasRune || !this.props.item.rune) ? (
+      <Grid fluid>
+        <Row>
+          <Col lg={12}>
+            {partyMember}
+          </Col>
+        </Row>
+      </Grid>
+    ) : (
+      <Grid fluid>
+        <Row>
+          <Col lg={8}>
+            {partyMember}
+          </Col>
+          <Col lg={4}>
+            <ItemRune
+              name={this.props.item.rune.name}
+            />
+          </Col>
+        </Row>
+      </Grid>
     );
 
     return (
-      <section>
-        <h4>{this.props.item.name}</h4>
-        <ItemSlotTable
-          slots={this.props.item.slots}
-        />
-        {partyMember}
-        {rune}
-        <button onClick={this.handleRemoveClick.bind(this)}>Delete</button>
-      </section>
+      <Panel
+        defaultExpanded
+        eventKey={this.props.index + 1}
+      >
+        <Panel.Heading>
+          <Panel.Title toggle>
+            {this.props.item.name}
+          </Panel.Title>
+        </Panel.Heading>
+        <Panel.Collapse>
+          <Panel.Body>
+            <ItemSlotTable
+              slots={this.props.item.slots}
+            />
+            {bottomRow}
+          </Panel.Body>
+          <Panel.Footer>
+            <Button onClick={this.handleRemoveClick.bind(this)}>Delete</Button>
+          </Panel.Footer>
+        </Panel.Collapse>
+      </Panel>
     );
   }
 }

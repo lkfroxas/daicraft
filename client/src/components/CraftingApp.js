@@ -5,6 +5,7 @@ import ShoppingListStore from '../stores/ShoppingListStore.js';
 import BuilderSection from './builder/BuilderSection.js';
 import ItemList from './item_list/ItemList.js';
 import ShoppingList from './ShoppingList.js';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 function getCraftState() {
   return {
@@ -47,13 +48,21 @@ class CraftingApp extends React.Component {
     );
 
     return (
-      <section>
-        <BuilderSection
-          schematic={this.state.schematic}
-        />
-        {items}
-        {shopList}
-      </section>
+      <main>
+        <Grid>
+          <Row>
+            <Col lg={8}>
+              <BuilderSection
+                schematic={this.state.schematic}
+              />
+              {items}
+            </Col>
+            <Col lg={4}>
+              {shopList}
+            </Col>
+          </Row>
+        </Grid>
+      </main>
     );
   }
 
