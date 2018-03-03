@@ -20,7 +20,7 @@ let ItemSlotTable = function(props) {
   });
 
   return (
-    <Table>
+    <Table condensed>
       <thead>
         <tr>
           <th>Slot</th>

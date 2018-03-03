@@ -22,7 +22,7 @@ function ShoppingList(props) {
         </Panel.Heading>
         <Panel.Collapse>
           <Panel.Body>
-            <Table>
+            <Table condensed>
               <thead>
                 <tr>
                   <th>Material</th>
