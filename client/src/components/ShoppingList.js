@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Table } from 'react-bootstrap';
 
 function ShoppingList(props) {
   const listArray = Object.entries(props.shoppingList);
@@ -22,7 +22,7 @@ function ShoppingList(props) {
         </Panel.Heading>
         <Panel.Collapse>
           <Panel.Body>
-            <table>
+            <Table>
               <tbody>
                 <tr>
                   <th>Material</th>
@@ -30,7 +30,7 @@ function ShoppingList(props) {
                 </tr>
                 {materialsList}
               </tbody>
-            </table>
+            </Table>
           </Panel.Body>
         </Panel.Collapse>
       </Panel>
