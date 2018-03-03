@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item.js';
+import { PanelGroup } from 'react-bootstrap';
 
 class ItemList extends React.Component {
   render() {
@@ -16,7 +17,9 @@ class ItemList extends React.Component {
     return (
       <section>
         <h3>Items</h3>
-        {items}
+        <PanelGroup accordion>
+          {items}
+        </PanelGroup>
       </section>
     );
   }

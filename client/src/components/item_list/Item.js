@@ -51,26 +51,27 @@ class Item extends React.Component {
     );
 
     return (
-      <section>
-        <Panel defaultExpanded>
-          <Panel.Heading>
-            <Panel.Title toggle>
-              {this.props.item.name}
-            </Panel.Title>
-          </Panel.Heading>
-          <Panel.Collapse>
-            <Panel.Body>
-              <ItemSlotTable
-                slots={this.props.item.slots}
-              />
-              {bottomRow}
-            </Panel.Body>
-            <Panel.Footer>
-              <Button onClick={this.handleRemoveClick.bind(this)}>Delete</Button>
-            </Panel.Footer>
-          </Panel.Collapse>
-        </Panel>
-      </section>
+      <Panel
+        defaultExpanded
+        eventKey={this.props.index + 1}
+      >
+        <Panel.Heading>
+          <Panel.Title toggle>
+            {this.props.item.name}
+          </Panel.Title>
+        </Panel.Heading>
+        <Panel.Collapse>
+          <Panel.Body>
+            <ItemSlotTable
+              slots={this.props.item.slots}
+            />
+            {bottomRow}
+          </Panel.Body>
+          <Panel.Footer>
+            <Button onClick={this.handleRemoveClick.bind(this)}>Delete</Button>
+          </Panel.Footer>
+        </Panel.Collapse>
+      </Panel>
     );
   }
 }
