@@ -21,13 +21,15 @@ let ItemSlotTable = function(props) {
 
   return (
     <Table>
-      <tbody>
+      <thead>
         <tr>
           <th>Slot</th>
           <th>Property</th>
           <th>Material</th>
           <th>Quantity</th>
         </tr>
+      </thead>
+      <tbody>
         {slots}
       </tbody>
     </Table>

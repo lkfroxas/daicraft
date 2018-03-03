@@ -23,11 +23,13 @@ function ShoppingList(props) {
         <Panel.Collapse>
           <Panel.Body>
             <Table>
-              <tbody>
+              <thead>
                 <tr>
                   <th>Material</th>
                   <th>Quantity</th>
                 </tr>
+              </thead>
+              <tbody>
                 {materialsList}
               </tbody>
             </Table>
