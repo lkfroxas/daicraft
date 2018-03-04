@@ -30,7 +30,7 @@ class Item extends React.Component {
     const bottomRow = (!this.props.item.hasRune || !this.props.item.rune) ? (
       <Grid fluid>
         <Row>
-          <Col lg={12}>
+          <Col lg={8}>
             {partyMember}
           </Col>
         </Row>
@@ -52,7 +52,6 @@ class Item extends React.Component {
 
     return (
       <Panel
-        defaultExpanded
         eventKey={this.props.index + 1}
       >
         <Panel.Heading>

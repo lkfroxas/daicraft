@@ -17,7 +17,10 @@ class ItemList extends React.Component {
     return (
       <section>
         <h3>Items</h3>
-        <PanelGroup accordion>
+        <PanelGroup
+          accordion
+          id="item_list"
+        >
           {items}
         </PanelGroup>
       </section>
