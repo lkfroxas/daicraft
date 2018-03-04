@@ -16,4 +16,4 @@
 //   return connection;
 // };
 
-exports.url = "mongodb://localhost:27017/dcdb";
+exports.url = (process.env.MONGODB_URI || "mongodb://localhost:27017/dcdb");

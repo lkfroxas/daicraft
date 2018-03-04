@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var dcdb = require('../db/sqlConn');
+var dcdb = require('../db/dbConn');
 var MongoClient = require('mongodb').MongoClient;
 
 /* GET property data */
