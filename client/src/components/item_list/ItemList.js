@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item.js';
-import { PanelGroup } from 'react-bootstrap';
 
 class ItemList extends React.Component {
   render() {
