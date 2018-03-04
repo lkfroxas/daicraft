@@ -51,9 +51,7 @@ class Item extends React.Component {
     );
 
     return (
-      <Panel
-        eventKey={this.props.index + 1}
-      >
+      <Panel>
         <Panel.Heading>
           <Panel.Title toggle>
             {this.props.item.name}
