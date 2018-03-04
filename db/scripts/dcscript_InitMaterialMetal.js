@@ -114,7 +114,7 @@ db.materials.insertMany([
     type: "Metal",
     tier: 2,
     properties: [
-      { type: "Main", property: "Low Rating" },
+      { type: "Main", property: "Medium Rating" },
       { type: "Utility", property: "Constitution" },
       { type: "Offense", property: "Guard Damage" },
       { type: "Defense", property: "Health" }
