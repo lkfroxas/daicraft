@@ -8,7 +8,8 @@ var ObjectId = require('mongodb').ObjectID;
 router.get('/:id', function(req, res) {
   console.log("Get schematic by id: " + req.params.id);
   MongoClient.connect(dcdb.url, function(err, database) {
-    var db = database.db('dcdb');
+    var dbName = dcdb.url.substr(dcdb.url.lastIndexOf('/') + 1);
+    var db = database.db(dbName);
     var collection = db.collection('schematics');
     collection.find({
       "_id": ObjectId(req.params.id)
@@ -23,7 +24,8 @@ router.get('/:id', function(req, res) {
 router.get('/', function(req, res) {
   console.log('Get schematic list');
   MongoClient.connect(dcdb.url, function(err, database) {
-    var db = database.db('dcdb');
+    var dbName = dcdb.url.substr(dcdb.url.lastIndexOf('/') + 1);
+    var db = database.db(dbName);
     var collection = db.collection('schematics');
     collection.find({
       type: req.query.schematicType

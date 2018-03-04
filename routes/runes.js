@@ -8,7 +8,8 @@ var ObjectId = require('mongodb').ObjectID;
 router.get('/:id', function(req, res) {
   console.log("Get rune by id: " + req.params.id);
   MongoClient.connect(dcdb.url, function(err, database) {
-    var db = database.db('dcdb');
+    var dbName = dcdb.url.substr(dcdb.url.lastIndexOf('/') + 1);
+    var db = database.db(dbName);
     var collection = db.collection('runes');
     collection.find({
       "_id": ObjectId(req.params.id)
@@ -22,7 +23,8 @@ router.get('/:id', function(req, res) {
 /* Get runes by tier and schematictype */
 router.get('/', function(req, res) {
   MongoClient.connect(dcdb.url, function(err, database) {
-    var db = database.db('dcdb');
+    var dbName = dcdb.url.substr(dcdb.url.lastIndexOf('/') + 1);
+    var db = database.db(dbName);
     var collection = db.collection('runes');
     collection.find({
       tier: parseInt(req.query.tier),
